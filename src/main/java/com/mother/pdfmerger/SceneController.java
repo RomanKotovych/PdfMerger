@@ -1,12 +1,7 @@
 package com.mother.pdfmerger;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
@@ -15,7 +10,6 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -86,6 +80,7 @@ public class SceneController {
 void merge(ActionEvent event) {
     try {
         pdfMerger.merge(outputPathField.getText(), nameField.getText(), pdfList.toArray(new String[0]));
+
     } catch (Exception e) {
         showError(e.getMessage(), e);
     } finally {
